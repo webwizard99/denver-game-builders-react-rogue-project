@@ -30,3 +30,6 @@ Here is the project [deployed on AWS](http://react-rogue.s3-website.us-east-2.am
 * [Step 11](https://github.com/webwizard99/react-rogue-tutorial-step11)
 * [Step 12](https://github.com/webwizard99/react-rogue-tutorial-step12)
 * [Step 13](https://github.com/webwizard99/react-rogue-tutorial-step13)
+
+### Our Sessions
+* [Session 1](https://github.com/webwizard99/react-rogue-tutorial-session1)
