@@ -16,7 +16,6 @@ const ReactRogue = ({ width, height, tileSize }) => {
 
   const handleInput = (action, data) => {
     if (action === 'open') {
-      console.log('open');
       let newMenu = new Menu();
       Object.assign(newMenu, menu);
       newMenu.toggleMenu();
@@ -29,13 +28,10 @@ const ReactRogue = ({ width, height, tileSize }) => {
     if (menu.open) {
       let newMenu = new Menu();
       Object.assign(newMenu, menu);
-      console.log(world.player.inventory.length);
-      console.log(data.y);
-      console.log(menu.index);
       if (menu.index >= (world.player.inventory.length -1) && data.y > 0) {
         newMenu.setIndex(0);
       } else {
-        if (menu.index <= 0) {
+        if (menu.index <= 0 && data.y < 0) {
           newMenu.setIndex(world.player.inventory.length -1);
         } else {
           newMenu.setIndex(menu.index + data.y);
@@ -49,7 +45,6 @@ const ReactRogue = ({ width, height, tileSize }) => {
       console.log('menu open');
       return;
     }
-    console.log(`handle input: ${action}:${JSON.stringify(data)}`);
     let newWorld = new World();
     Object.assign(newWorld, world);
     newWorld.movePlayer(data.x, data.y);
@@ -80,7 +75,6 @@ const ReactRogue = ({ width, height, tileSize }) => {
   });
 
   useEffect(() => {
-    console.log("Draw to canvas")
     const ctx = canvasRef.current.getContext('2d');
     ctx.clearRect(0, 0, width * tileSize, height * tileSize);
     world.draw(ctx);
